@@ -1,0 +1,247 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+ <edmx:DataServices m:DataServiceVersion="2.0">
+  <Schema Namespace="ZGW_GLOBAL_JOURNAL_ENTRY_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+   <EntityType Name="HeaderFieldsConfig" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="CompanyCode"/>
+     <PropertyRef Name="FieldName"/>
+    </Key>
+    <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Optional" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Input Criteria" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="FieldName" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="FIELD_NAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="TaxJurisdiction" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="TaxJurisdictionCode"/>
+    </Key>
+    <Property Name="TaxJurisdictionCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="CostingSheet" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="Columns" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="Columnname"/>
+    </Key>
+    <Property Name="Columnname" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field Length = 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Char255" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="Attachments" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="DocumentNo"/>
+    </Key>
+    <Property Name="DocumentNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="FileName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="JournalNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Value" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Type" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="UserDet" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="CompanyCode"/>
+     <PropertyRef Name="Username"/>
+    </Key>
+    <Property Name="ApproverName" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="c" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+    <Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Branching name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Approver" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Branching name" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+    <Property Name="DecimalFormat" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Decimal Format" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="ItemFields" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="CompCode"/>
+     <PropertyRef Name="DocType"/>
+     <PropertyRef Name="FieldName"/>
+    </Key>
+    <Property Name="CompCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Sequence" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Width" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Mandatory" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Input Criteria" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="DocType" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Document Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="FieldName" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Item field name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="FieldText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Field Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Length" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Length of the Field" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="DataType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Data Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="UserDrafts" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="Username"/>
+     <PropertyRef Name="JournalNo"/>
+    </Key>
+    <Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="JournalNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Journal No:" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="CreatedOn" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="DocType" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Document Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="PostingDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Posting Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="JournalDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Journal Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="CompCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+   </EntityType>
+   <EntityType Name="Currency" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="Waers"/>
+    </Key>
+    <Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+    <Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Long Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="GLAccounts" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="CompanyCode"/>
+     <PropertyRef Name="GLAccount"/>
+    </Key>
+    <Property Name="CompanyCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+    <Property Name="GLAccount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="GLDescription" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="CostCenter" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="CompanyCode"/>
+     <PropertyRef Name="CostCentre"/>
+    </Key>
+    <Property Name="CompanyCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="CostCentre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="CostCenterDescription" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="ItemData" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="Index"/>
+    </Key>
+    <Property Name="Index" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <NavigationProperty Name="ColumnData" Relationship="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.ItemsToColumns" FromRole="FromRole_ItemsToColumns" ToRole="ToRole_ItemsToColumns"/>
+   </EntityType>
+   <EntityType Name="HeaderData" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="JournalNo"/>
+     <PropertyRef Name="Action"/>
+    </Key>
+    <Property Name="Approver" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="LedgerGroup" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Ledger Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="JournalNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Journal No:" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="ParkedDocNo" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Doc. Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Action" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Save / Submit" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="DocHeaderTxt" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="DocType" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Document Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="CompCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="PostingDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Posting Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Period" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Char02" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+    <NavigationProperty Name="Items" Relationship="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.HeaderToItems" FromRole="FromRole_HeaderToItems" ToRole="ToRole_HeaderToItems"/>
+    <NavigationProperty Name="AttachedFiles" Relationship="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.HeaderToAttachments" FromRole="FromRole_HeaderToAttachments" ToRole="ToRole_HeaderToAttachments"/>
+   </EntityType>
+   <EntityType Name="CompanyCodes" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="Bukrs"/>
+    </Key>
+    <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Company Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Ort01" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="City" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="TradingPartner" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="CompCode"/>
+    </Key>
+    <Property Name="CompCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="TaxCode" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="CompanyCode"/>
+     <PropertyRef Name="Taxcode"/>
+    </Key>
+    <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Taxcode" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tax Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Taxdescription" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="ProfitCenter" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="ProfitCenterNo"/>
+     <PropertyRef Name="CompanyCode"/>
+    </Key>
+    <Property Name="ProfitCenterDescription" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="ProfitCenterNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="CompanyCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="WBSElements" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="CompanyCode"/>
+     <PropertyRef Name="CostCenter"/>
+    </Key>
+    <Property Name="CompanyCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="CostCenter" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="WBSElement" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="WBSDescription" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="TherapyGroups" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="TherapyGroup"/>
+    </Key>
+    <Property Name="TherapyGroup" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="TherapyGroupDescription" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="CountryKeys" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="CountryKey"/>
+    </Key>
+    <Property Name="CountryKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="LedgerGroups" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="Ldgrp"/>
+    </Key>
+    <Property Name="Ldgrp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Ledger Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Ledgername" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Ledger from Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Explanation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <Association Name="ItemsToColumns" sap:content-version="1">
+    <End Type="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.ItemData" Multiplicity="1" Role="FromRole_ItemsToColumns"/>
+    <End Type="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.Columns" Multiplicity="*" Role="ToRole_ItemsToColumns"/>
+   </Association>
+   <Association Name="HeaderToItems" sap:content-version="1">
+    <End Type="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.HeaderData" Multiplicity="1" Role="FromRole_HeaderToItems"/>
+    <End Type="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.ItemData" Multiplicity="*" Role="ToRole_HeaderToItems"/>
+   </Association>
+   <Association Name="HeaderToAttachments" sap:content-version="1">
+    <End Type="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.HeaderData" Multiplicity="1" Role="FromRole_HeaderToAttachments"/>
+    <End Type="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.Attachments" Multiplicity="*" Role="ToRole_HeaderToAttachments"/>
+   </Association>
+   <EntityContainer Name="ZGW_GLOBAL_JOURNAL_ENTRY_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+    <EntitySet Name="HeaderFieldsConfigSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.HeaderFieldsConfig" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="TaxJurisdictionSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.TaxJurisdiction" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="ColumnsSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.Columns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="AttachmentsSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.Attachments" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="UserDetSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.UserDet" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+    <EntitySet Name="ItemFieldsSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.ItemFields" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+    <EntitySet Name="UserDraftsSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.UserDrafts" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+    <EntitySet Name="CurrencySet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.Currency" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+    <EntitySet Name="GLAccountsSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.GLAccounts" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="CostCenterSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.CostCenter" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="ItemDataSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.ItemData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="HeaderDataSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.HeaderData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="CompanyCodesSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.CompanyCodes" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="TradingPartnerSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.TradingPartner" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="TaxCodeSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.TaxCode" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="ProfitCenterSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.ProfitCenter" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="WBSElementsSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.WBSElements" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="TherapyGroupsSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.TherapyGroups" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="CountryKeysSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.CountryKeys" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+    <EntitySet Name="LedgerGroupsSet" EntityType="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.LedgerGroups" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+    <AssociationSet Name="HeaderToAttachmentsSet" Association="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.HeaderToAttachments" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+     <End EntitySet="HeaderDataSet" Role="FromRole_HeaderToAttachments"/>
+     <End EntitySet="AttachmentsSet" Role="ToRole_HeaderToAttachments"/>
+    </AssociationSet>
+    <AssociationSet Name="ItemsToColumnsSet" Association="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.ItemsToColumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+     <End EntitySet="ItemDataSet" Role="FromRole_ItemsToColumns"/>
+     <End EntitySet="ColumnsSet" Role="ToRole_ItemsToColumns"/>
+    </AssociationSet>
+    <AssociationSet Name="HeaderToItemsSet" Association="ZGW_GLOBAL_JOURNAL_ENTRY_SRV.HeaderToItems" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+     <End EntitySet="HeaderDataSet" Role="FromRole_HeaderToItems"/>
+     <End EntitySet="ItemDataSet" Role="ToRole_HeaderToItems"/>
+    </AssociationSet>
+   </EntityContainer>
+   <atom:link rel="self" href="http://nne1qapp21.novo.dk:1045/sap/opu/odata/SAP/ZGW_GLOBAL_JOURNAL_ENTRY_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+   <atom:link rel="latest-version" href="http://nne1qapp21.novo.dk:1045/sap/opu/odata/SAP/ZGW_GLOBAL_JOURNAL_ENTRY_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+  </Schema>
+ </edmx:DataServices>
+</edmx:Edmx>
